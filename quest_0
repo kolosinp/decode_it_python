@@ -1,0 +1,59 @@
+def test_toma(c,k,w):
+    if (k >= w) :
+        if ( c <= w) :
+            return 1
+        else :
+            return 0
+    else :
+        return 0
+
+def check_data_input_test_amount():
+    while  True: 
+        try: 
+            t=int(input("Podaj ilość testów z przedziału od 1 do 100 \n "))
+            if ( t > 0 ) and ( t < 101 ):
+                return t
+            else:
+                print("Podaj wartość prawidłowoą z przedziału od 1 do 100 \n ")
+                continue
+        except:
+            print("Podaj wartość prawidłowoą z przedziału od 1 do 100 \n ")
+            continue
+        
+def check_c_k_w_value():
+    while  True:  
+            c_k_w=input("Podaj liczbę metrów, udźwig Toma oraz wagę nawozu \n")
+            
+            try:
+                c = int(c_k_w[0])
+                k = int(c_k_w[2])
+                w = int(c_k_w[4]) 
+            except: 
+               print("Podaj wartość liczbową \n ")
+               continue 
+
+            lista=[c,k,w]
+
+            if ( w > 0 ) and ( w < 101 ):
+                if ( k > 0 ) :
+                   if ( c > 0 ) :
+                        return lista
+                   else :
+                        print("Metry nie mogą być ujemne ! ")
+                        continue
+                else :
+                    print("Siła nie może być ujemna ! ")
+                    continue
+            else:
+                 print("Są limity wagi nawozu ! ")
+                 continue       
+
+t=check_data_input_test_amount()
+
+for i in range(t) :
+    c_k_w=check_c_k_w_value()
+
+    if test_toma(c_k_w[0],c_k_w[1],c_k_w[2]):
+        print("yes")
+    else:
+        print("no")
