@@ -1,6 +1,6 @@
-from math import fmod
+import math
 
-ef check_data_input_test_amount():
+def check_data_input_test_amount():
     while  True: 
         try: 
             t=int(input("Podaj ilość testów \n"))
@@ -53,4 +53,5 @@ for x in range(t):
     if ( a == 6174 ):
         print(x+1)
         break;
-    
+    if (x == t-1) :
+        print(-1)
